@@ -3,5 +3,9 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins [[lein-ring "0.8.7"]]
+  :ring {:handler project1.core/example-handler
+     	 :init project1.core/on-init
+  	 :destroy project1.core/on-destroy}
   :dependencies [[org.clojure/clojure "1.5.1"]
    	         [ring "1.2.0"]])
