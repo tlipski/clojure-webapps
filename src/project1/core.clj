@@ -1,7 +1,9 @@
 (ns project1.core)
 
 (defn example-handler [request]
- {:body (pr-str request)}
+ {:headers {"Location" "http://github.com/ring-clojure/ring"
+	    "Set-cookie" "test=1"}
+  :status 301}
  )
 
 (defn on-init []
