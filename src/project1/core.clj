@@ -1,7 +1,7 @@
 (ns project1.core)
 
 (defn example-handler [request]
- {:body "Hello Clojure reload!"}
+ {:body (pr-str request)}
  )
 
 (defn on-init []
