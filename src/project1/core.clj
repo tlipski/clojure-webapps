@@ -2,6 +2,9 @@
  (:require [project1.handlers :as handlers]
            [ring.middleware.resource :as resource]
      	   [ring.middleware.file-info :as file-info]
+ 	   [ring.middleware.params]
+	   [ring.middleware.keyword-params]
+   	   [ring.middleware.multipart-params]
            [clojure.string]))
 
 (defn case-middleware [handler request]
@@ -57,11 +60,19 @@
 (defn test2-handler [request]
  {:status 301 :headers {"Location" "http://github.com/ring-clojure"}})
 
+(defn form-handler [request]
+ {:status 200
+  :headers {"Content-type" "text/plain"}
+  :body (str "local path:\n" (.getAbsolutePath (get-in request [:params :file :tempfile]))
+"\nmultipart-params:\n" (:multipart-params request)
+"\nparams:\n" (:params request) "\nquery-params:\n" (:query-params request) "\nform-params:\n" (:form-params request))})
+
 (defn route-handler [request]
  (condp = (:uri request)
   "/test1" (test1-handler request)
   "/test2" (test2-handler request)
   "/test3" (handlers/handler3 request)
+  "/form"  (form-handler request)
   nil))
 
 (defn wrapping-handler [request]
@@ -79,4 +90,7 @@
   file-info/wrap-file-info
   wrap-case-middleware
   wrap-exception-middleware
+  ring.middleware.keyword-params/wrap-keyword-params
+  ring.middleware.params/wrap-params
+  ring.middleware.multipart-params/wrap-multipart-params
   simple-log-middleware))
