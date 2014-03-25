@@ -5,6 +5,7 @@
  	   [ring.middleware.params]
 	   [ring.middleware.keyword-params]
    	   [ring.middleware.multipart-params]
+	   [ring.middleware.cookies]
   	   [project1.html :as html]
            [clojure.string]))
 
@@ -68,9 +69,14 @@
 (defn test2-handler [request]
  {:status 301 :headers {"Location" "http://github.com/ring-clojure"}})
 
+(defn cookie-handler [request]
+ {:body (layout [:div [:p "Cookies:"]
+		[:pre (:cookies request)]])})
+
 (defn form-handler [request]
  {:status 200
   :headers {"Content-type" "text/html"}
+  :cookies {:username (:login (:params request))}
   :body (layout
     	 [:div
   	   [:p "Params:"]
@@ -91,6 +97,7 @@
   "/test2" (test2-handler request)
   "/test3" (handlers/handler3 request)
   "/form"  (form-handler request)
+  "/cookies" (cookie-handler request)
   nil))
 
 (defn wrapping-handler [request]
@@ -111,4 +118,5 @@
   ring.middleware.keyword-params/wrap-keyword-params
   ring.middleware.params/wrap-params
   ring.middleware.multipart-params/wrap-multipart-params
+  ring.middleware.cookies/wrap-cookies
   simple-log-middleware))
