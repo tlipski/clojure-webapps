@@ -9,6 +9,7 @@
 	   [ring.middleware.session]
 	   [ring.middleware.session.memory]
   	   [project1.html :as html]
+	   [project1.route :as route]
            [clojure.string]))
 
 (defn layout [contents]
@@ -65,8 +66,7 @@
   (println x "Hello, World!"))
 
 (defn test1-handler [request]
- (throw (RuntimeException. "error!"))
- {:body "test1"})
+ {:body (str "test1, route args: " (:route-params request))})
 
 (defn test2-handler [request]
  {:status 301 :headers {"Location" "http://github.com/ring-clojure"}})
@@ -103,16 +103,17 @@
 	[:b (when-let [f (get-in request [:params :file :tempfile])]
   		(.getAbsolutePath f))]])})
 
-(defn route-handler [request]
- (condp = (:uri request)
-  "/test1" (test1-handler request)
-  "/test2" (test2-handler request)
-  "/test3" (handlers/handler3 request)
-  "/form"  (form-handler request)
-  "/cookies" (cookie-handler request)
-  "/session" (session-handler request)
-  "/logout" (logout-handler request)
-  nil))
+(def route-handler 
+ (route/routing
+   (route/with-route-matches :get "/test1" test1-handler)
+   (route/with-route-matches :get "/test1/:id" test1-handler)
+   (route/with-route-matches :get "/test2" test2-handler)
+   (route/with-route-matches :get "/test3" handlers/handler3)
+   (route/with-route-matches :get "/form" form-handler)
+   (route/with-route-matches :post "/form" form-handler)
+   (route/with-route-matches :get "/cookies" cookie-handler)
+   (route/with-route-matches :get "/session" session-handler)
+   (route/with-route-matches :get "/logout" logout-handler)))
 
 (defn wrapping-handler [request]
  (try
