@@ -10,6 +10,7 @@
 	   [ring.middleware.session.memory]
   	   [project1.html :as html]
 	   [project1.route :as route]
+	   [project1.blog :as blog]
            [clojure.string]))
 
 (defn layout [contents]
@@ -105,6 +106,7 @@
 
 (def route-handler 
  (route/routing
+   blog/blog-handler
    (route/with-route-matches :get "/test1" test1-handler)
    (route/with-route-matches :get "/test1/:id" test1-handler)
    (route/with-route-matches :get "/test2" test2-handler)

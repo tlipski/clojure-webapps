@@ -9,4 +9,5 @@
          :port 4001
   	 :destroy project1.core/on-destroy}
   :dependencies [[org.clojure/clojure "1.5.1"]
+  		 [org.clojure/data.json "0.2.3"]
    	         [ring "1.2.0"]])
