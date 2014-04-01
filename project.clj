@@ -10,4 +10,6 @@
   	 :destroy project1.core/on-destroy}
   :dependencies [[org.clojure/clojure "1.5.1"]
   		 [org.clojure/data.json "0.2.3"]
+		 [org.postgresql/postgresql "9.2-1003-jdbc4"]
+		 [org.clojure/java.jdbc "0.3.2"]
    	         [ring "1.2.0"]])
