@@ -3,7 +3,8 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :plugins [[lein-ring "0.8.7"]]
+  :plugins [[lein-ring "0.8.7"]
+	    [lein-cljsbuild "1.0.3"]]
   :ring {:handler project1.core/full-handler
      	 :init project1.core/on-init
          :port 4001
@@ -14,4 +15,6 @@
 		 [korma "0.3.0-RC6"]
 		 [com.novemberain/monger "1.7.0"]
 		 [cheshire "5.1.1"]
-   	         [ring "1.2.0"]])
+   	         [ring "1.2.0"]]
+  :cljsbuild {:builds [{:source-paths ["cljs"] 
+  			:compiler {:output-to "resources/public/app.js"}}]})
