@@ -13,9 +13,21 @@
   		[core :as hiccup]
 		[page :as page]
 		[util]]
+	   [net.cgrand.enlive-html :as enlive]
 	   [project1.route :as route]
 	   [project1.blog :as blog]
            [clojure.string]))
+
+(enlive/deftemplate layout-template "templates/layout.html"
+ [contents]
+ [:body] (enlive/html-content (apply str contents)))
+
+(enlive/deftemplate form-handler-template "templates/form-handler.html"
+ [params query-params form-params multipart-params]
+ [:pre#params] (enlive/content (str params))
+ [:pre#query-params] (enlive/content (str query-params))
+ [:pre#form-params] (enlive/content (str form-params))
+ [:pre#multipart-params] (enlive/content (str multipart-params)))
 
 (defn layout [contents]
  (page/html5
@@ -93,19 +105,12 @@
   :cookies {:username login}
   :session {:username  login
 	    :cnt (inc (or (:cnt (:session request)) 0))}
-  :body (layout
-    	 [:div
-  	   [:p "Params:"]
-  	[:pre (hiccup.util/escape-html (:params request))]
- 	[:p "Query string params:"]
-	[:pre (hiccup.util/escape-html (:query-params request))]
-	[:p "Form params:"]
-	[:pre (hiccup.util/escape-html (:form-params request))]
-	[:p "Multipart params:"]
-	[:pre (hiccup.util/escape-html (:multipart-params request))]
-	[:p "Local path:"]
-	[:b (when-let [f (get-in request [:params :file :tempfile])]
-  		(hiccup.util/escape-html (.getAbsolutePath f)))]])})
+  :body (apply str (layout-template 
+			(form-handler-template
+  				(:params request)
+				(:query-params request)
+				(:form-params request)
+				(:multipart-params request))))})
 
 (compojure/defroutes route-handler 
   (compojure/context "/entries" [] 
