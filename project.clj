@@ -16,6 +16,7 @@
 		 [com.novemberain/monger "1.7.0"]
 		 [cheshire "5.1.1"]
    	         [ring "1.2.0"]
-  		 [compojure "1.1.6"]]
+  		 [compojure "1.1.6"]
+		 [hiccup "1.0.4"]]
   :cljsbuild {:builds [{:source-paths ["cljs"] 
   			:compiler {:output-to "resources/public/app.js"}}]})

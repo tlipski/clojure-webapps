@@ -9,18 +9,20 @@
 	   [ring.middleware.session]
 	   [ring.middleware.session.memory]
   	   [compojure.core :as compojure]
-  	   [project1.html :as html]
+	   [hiccup 
+  		[core :as hiccup]
+		[page :as page]
+		[util]]
 	   [project1.route :as route]
 	   [project1.blog :as blog]
            [clojure.string]))
 
 (defn layout [contents]
- (html/emit
-  [:html
-   [:body 
+ (page/html5
+   [:body {:style "background-color: #363636; color: #fff;"} 
     [:h1 "Clojure webapps example"]
     [:p "This content comes from layout function"]
-    contents]]))
+    contents]))
 (defn case-middleware [handler request]
  (let [request (update-in request [:uri] clojure.string/lower-case)
        response (handler request)]
@@ -75,11 +77,11 @@
 
 (defn cookie-handler [request]
  {:body (layout [:div [:p "Cookies:"]
-		[:pre (:cookies request)]])})
+		[:pre (hiccup.util/escape-html (:cookies request))]])})
 
 (defn session-handler [request]
  {:body (layout [:div [:p "Session:"]
-		[:pre (:session request)]])})
+		[:pre (hiccup.util/escape-html (:session request))]])})
 
 (defn logout-handler [request]
  {:body "Logged out."
@@ -94,16 +96,16 @@
   :body (layout
     	 [:div
   	   [:p "Params:"]
-  	[:pre (:params request)]
+  	[:pre (hiccup.util/escape-html (:params request))]
  	[:p "Query string params:"]
-	[:pre (:query-params request)]
+	[:pre (hiccup.util/escape-html (:query-params request))]
 	[:p "Form params:"]
-	[:pre (:form-params request)]
+	[:pre (hiccup.util/escape-html (:form-params request))]
 	[:p "Multipart params:"]
-	[:pre (:multipart-params request)]
+	[:pre (hiccup.util/escape-html (:multipart-params request))]
 	[:p "Local path:"]
 	[:b (when-let [f (get-in request [:params :file :tempfile])]
-  		(.getAbsolutePath f))]])})
+  		(hiccup.util/escape-html (.getAbsolutePath f)))]])})
 
 (compojure/defroutes route-handler 
   (compojure/context "/entries" [] 
