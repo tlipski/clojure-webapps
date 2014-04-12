@@ -15,6 +15,7 @@
 		 [korma "0.3.0-RC6"]
 		 [com.novemberain/monger "1.7.0"]
 		 [cheshire "5.1.1"]
-   	         [ring "1.2.0"]]
+   	         [ring "1.2.0"]
+  		 [compojure "1.1.6"]]
   :cljsbuild {:builds [{:source-paths ["cljs"] 
   			:compiler {:output-to "resources/public/app.js"}}]})

@@ -76,11 +76,11 @@
 (def blog-handler 
  (->
   (route/routing
-   (route/with-route-matches :get "/entries" get-handler)
-   (route/with-route-matches :post "/entries" post-handler)
-   (route/with-route-matches :get "/entries/:id" get-entry-handler)
-   (route/with-route-matches :put "/entries/:id" put-handler)
-   (route/with-route-matches :delete "/entries/:id" delete-handler))
+   (route/with-route-matches :get "/" get-handler)
+   (route/with-route-matches :post "/" post-handler)
+   (route/with-route-matches :get "/:id" get-entry-handler)
+   (route/with-route-matches :put "/:id" put-handler)
+   (route/with-route-matches :delete "/:id" delete-handler))
   json-error-handler
 ))
  

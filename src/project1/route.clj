@@ -3,7 +3,7 @@
 (defn route-matches [verb path-spec request]
  (when (= (:request-method request) verb)
   (let [path-regex (.replaceAll path-spec "/:([^/]+)" "/([^/]+)")
-   	path-matches (re-matches (re-pattern path-regex) (:uri request))]
+   	path-matches (re-matches (re-pattern path-regex) (:path-info request))]
 	(println "Path regex for" path-spec "is" path-regex
 		 "match result:" path-matches)
 	(when path-matches
