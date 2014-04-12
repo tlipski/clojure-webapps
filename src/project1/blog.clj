@@ -5,6 +5,8 @@
 	   [monger.collection :as mc]
 	   [monger.json]
 	   [cheshire.core]
+	   [liberator.core :as liberator]
+	   [compojure.core :as compojure]
   	   [clojure.walk :as walk]))
 
 (mg/connect!)
@@ -37,50 +39,50 @@
   {:id id}))
 
 
-(defn json-response [data]
- (when data
-  {:body (cheshire.core/generate-string data)
-   :headers {"Content-type" "application/json"}}))
 
 (defn json-body [request]
  (walk/keywordize-keys 
   (json/read-str (slurp (:body request)))))
 
-(defn json-error-handler [handler]
- (fn [request]
-  (try
-   (handler request)
-   (catch Throwable throwable 
-     (assoc (json-response {:message (.getMessage throwable)
-  			    :stacktrace (map str (.getStackTrace throwable))})
-	:status 500)))))
 
 (defn get-id [request]
  (-> request :route-params :id))
 
 (defn get-handler [request]
- (json-response (get-blog-entries)))
+ (get-blog-entries))
 
 (defn post-handler [request]
- (json-response (add-blog-entry (json-body request))))
+ (add-blog-entry (json-body request)))
 
 (defn get-entry-handler [request]
-  (json-response (get-blog-entry (get-id request))))
+  (get-blog-entry (get-id request)))
 
 (defn put-handler [request]
- (json-response (update-blog-entry (get-id request) (json-body request))))
+ (update-blog-entry (get-id request) (json-body request)))
 
 (defn delete-handler [request]
- (json-response (delete-blog-entry (get-id request))))
+ (delete-blog-entry (get-id request)))
 
-(def blog-handler 
- (->
-  (route/routing
-   (route/with-route-matches :get "/" get-handler)
-   (route/with-route-matches :post "/" post-handler)
-   (route/with-route-matches :get "/:id" get-entry-handler)
-   (route/with-route-matches :put "/:id" put-handler)
-   (route/with-route-matches :delete "/:id" delete-handler))
-  json-error-handler
-))
+(liberator/defresource blog-list-resource []
+ :allowed-methods [:get :post]
+ :available-media-types ["application/json"]
+ :available-charsets ["utf-8"]
+ :post! (fn [ctx]
+   	   (add-blog-entry (json-body (:request ctx))))
+ :handle-ok (fn [_] (get-blog-entries)))
+
+(liberator/defresource blog-entry-resource [id]
+ :allowed-methods [:get :put :delete]
+ :available-media-types ["application/json"]
+ :available-charsets ["utf-8"]
+ :exists? (fn [_] (get-blog-entry id))
+ :put! (fn [ctx] (update-blog-entry id (json-body (:request ctx))))
+ :can-put-to-missing? false
+ :delete! (fn [_] (delete-blog-entry id))
+ :handle-ok (fn [_] (get-blog-entry id)))
+
+(compojure/defroutes blog-handler
+ (compojure/ANY "/:id" [id] (blog-entry-resource id))
+ (compojure/ANY "/" [] (blog-list-resource)))
+
  

@@ -17,6 +17,7 @@
 		 [cheshire "5.1.1"]
    	         [ring "1.2.0"]
   		 [compojure "1.1.6"]
+		 [liberator "0.10.0"]
 		 [hiccup "1.0.4"]
  		 [enlive "1.1.5"]]
   :cljsbuild {:builds [{:source-paths ["cljs"] 
