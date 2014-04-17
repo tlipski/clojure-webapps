@@ -20,8 +20,8 @@ Reference links:
 
 Videos:
 
-* [Video 1: project setup](/commits/tag/SECTION1_VIDEO1)
-* [Video 2: lein-ring plugin](/commits/tag/SECTION1_VIDEO2)
-* [Video 3: simple Ring handler](/commits/tag/SECTION1_VIDEO3)
-* [Video 4: running Ring server](/commits/tag/SECTION1_VIDEO4)
-* [Video 5: building web application packages](/commits/tag/SECTION1_VIDEO5)
+* [Video 1: project setup](commits/tag/SECTION1_VIDEO1)
+* [Video 2: lein-ring plugin](commits/tag/SECTION1_VIDEO2)
+* [Video 3: simple Ring handler](commits/tag/SECTION1_VIDEO3)
+* [Video 4: running Ring server](commits/tag/SECTION1_VIDEO4)
+* [Video 5: building web application packages](commits/tag/SECTION1_VIDEO5)
