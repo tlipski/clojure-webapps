@@ -14,11 +14,12 @@ In this section, the reader will learn how to create a Leiningen project, config
 
 Reference links:
 
-* [Leiningen build tool](http://www.leiningen.org), [https://github.com/technomancy/leiningen]
+* [Leiningen build tool](http://www.leiningen.org), [https://github.com/technomancy/leiningen](https://github.com/technomancy/leiningen)
 * [Ring](https://github.com/ring-clojure/ring)
 * [Leiningen Ring plugin](https://github.com/weavejester/lein-ring)
 
 Videos:
+
 * [Video 1: project setup](/commits/tag/SECTION1_VIDEO1)
 * [Video 2: lein-ring plugin](/commits/tag/SECTION1_VIDEO2)
 * [Video 3: simple Ring handler](/commits/tag/SECTION1_VIDEO3)
