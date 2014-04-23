@@ -23,11 +23,11 @@ Reference links:
 
 Videos:
 
-* [Video 1: project setup](tree/SECTION1_VIDEO1)
-* [Video 2: lein-ring plugin](tree/SECTION1_VIDEO2)
-* [Video 3: simple Ring handler](tree/SECTION1_VIDEO3)
-* [Video 4: running Ring server](tree/SECTION1_VIDEO4)
-* [Video 5: building web application packages](tree/SECTION1_VIDEO5)
+* [Video 1: project setup](../../tree/SECTION1_VIDEO1)
+* [Video 2: lein-ring plugin](../../tree/SECTION1_VIDEO2)
+* [Video 3: simple Ring handler](../../tree/SECTION1_VIDEO3)
+* [Video 4: running Ring server](../../tree/SECTION1_VIDEO4)
+* [Video 5: building web application packages](../../tree/SECTION1_VIDEO5)
 
 ## Section 2: Ring Handlers
 This section will explain how handlers in Ring work, what do they do and how we can access HTTP
@@ -42,11 +42,11 @@ Reference links:
 
 Videos:
 
-* [Video 1: Ring handler anatomy](tree/SECTION2_VIDEO1)
-* [Video 2: request map](tree/SECTION2_VIDEO2)
-* [Video 3: response map](tree/SECTION2_VIDEO3)
-* [Video 4: routing](tree/SECTION2_VIDEO4)
-* [Video 5: not found and error handling](tree/SECTION2_VIDEO5)
+* [Video 1: Ring handler anatomy](../../tree/SECTION2_VIDEO1)
+* [Video 2: request map](../../tree/SECTION2_VIDEO2)
+* [Video 3: response map](../../tree/SECTION2_VIDEO3)
+* [Video 4: routing](../../tree/SECTION2_VIDEO4)
+* [Video 5: not found and error handling](../../tree/SECTION2_VIDEO5)
 
 ## Section 3: Middleware
 In this section, I will explain how Ring middleware works. Then, I will implement an example middleware.
@@ -59,10 +59,10 @@ Reference links:
 
 Videos:
 
-* [Video 1: introduction](tree/SECTION3_VIDEO1)
-* [Video 2: example](tree/SECTION3_VIDEO2)
-* [Video 3: altering request and response](tree/SECTION3_VIDEO3)
-* [Video 4: using existing middleware](tree/SECTION3_VIDEO4)
+* [Video 1: introduction](../../tree/SECTION3_VIDEO1)
+* [Video 2: example](../../tree/SECTION3_VIDEO2)
+* [Video 3: altering request and response](../../tree/SECTION3_VIDEO3)
+* [Video 4: using existing middleware](../../tree/SECTION3_VIDEO4)
 
 ## Section 4: Forms & sessions handling
 In this section, I will show to handle POST/GET parameters from Clojure web application, generate
@@ -77,10 +77,10 @@ Reference links:
 
 Videos:
 
-* [Video 1: Form handling](tree/SECTION4_VIDEO1)
-* [Video 2: Generating HTML content](tree/SECTION4_VIDEO2)
-* [Video 3: Manipulating cookies](tree/SECTION4_VIDEO3)
-* [Video 4: Ring sessions](tree/SECTION4_VIDEO4)
+* [Video 1: Form handling](../../tree/SECTION4_VIDEO1)
+* [Video 2: Generating HTML content](../../tree/SECTION4_VIDEO2)
+* [Video 3: Manipulating cookies](../../tree/SECTION4_VIDEO3)
+* [Video 4: Ring sessions](../../tree/SECTION4_VIDEO4)
 
 ## Section 5: Building RESTful API
 This section will show how we can easily build a RESTful, JSON-based API with Clojure/Ring.
@@ -91,9 +91,9 @@ Reference links:
 
 Videos:
  
-* [Video 1: API introduction and routing](tree/SECTION5_VIDEO1)
-* [Video 2: Example RESTful API](tree/SECTION5_VIDEO2)
-* [Video 3: Handling errors in REST API](tree/SECTION5_VIDEO3)
+* [Video 1: API introduction and routing](../../tree/SECTION5_VIDEO1)
+* [Video 2: Example RESTful API](../../tree/SECTION5_VIDEO2)
+* [Video 3: Handling errors in REST API](../../tree/SECTION5_VIDEO3)
 
 ## Section 6: Database connectivity
 In this section, I will showcase how can we integrate a popular databases - PostgreSQL and
@@ -111,9 +111,9 @@ Reference links:
 
 Videos:
 
-* [Video 1: Connecting to PostgreSQL](tree/SECTION6_VIDEO1)
-* [Video 2: Using Korma](tree/SECTION6_VIDEO2)
-* [Video 3: Connecting to MongoDB](tree/SECTION6_VIDEO3)
+* [Video 1: Connecting to PostgreSQL](../../tree/SECTION6_VIDEO1)
+* [Video 2: Using Korma](../../tree/SECTION6_VIDEO2)
+* [Video 3: Connecting to MongoDB](../../tree/SECTION6_VIDEO3)
 
 ## Section 7: ClojureScript
 This section will cover how to build basic ClojureScript logic, access JavaScript functions and how to
@@ -126,9 +126,9 @@ Reference links:
 
 Videos:
 
-* [Video 1: ClojureScript](tree/SECTION7_VIDEO1)
-* [Video 2: Manipulating DOM tree with ClojureScript](tree/SECTION7_VIDEO2)
-* [Video 3: Accessing REST API from ClojureScript](tree/SECTION7_VIDEO3)
+* [Video 1: ClojureScript](../../tree/SECTION7_VIDEO1)
+* [Video 2: Manipulating DOM tree with ClojureScript](../../tree/SECTION7_VIDEO2)
+* [Video 3: Accessing REST API from ClojureScript](../../tree/SECTION7_VIDEO3)
 
 ## Section 8: Useful web libraries in Clojure
 In this section, I will show most popular and useful web libraries available for Clojure - Compojure for
@@ -143,7 +143,7 @@ Reference links:
 
 Videos:
 
-* [Video 1: Routing with Compojure](tree/SECTION8_VIDEO1)
-* [Video 2: HTML generation with Hiccup](tree/SECTION8_VIDEO2)
-* [Video 3: HTML templating with enlive](tree/SECTION8_VIDEO3)
-* [Video 4: REST API with Liberator](tree/SECTION8_VIDEO4)
+* [Video 1: Routing with Compojure](../../tree/SECTION8_VIDEO1)
+* [Video 2: HTML generation with Hiccup](../../tree/SECTION8_VIDEO2)
+* [Video 3: HTML templating with enlive](../../tree/SECTION8_VIDEO3)
+* [Video 4: REST API with Liberator](../../tree/SECTION8_VIDEO4)
