@@ -3,6 +3,8 @@
 This repository contains source codes for the [Developing web applications with Clojure](http://www.packtpub.com/) screencast, published
 by [PacktPub](https://www.packtpub.com).
 
+*Please note, that this code is provided for demonstrational purposes only and was written live during short videos. Therefore, it is kind of pointless to use it without commentary provided in the video course itself.*
+
 Each video has a separate git tag for version of code available at the end of it,
 so you can walk through the progress of the tutorials or jump to the one you're currently browsing.
 
