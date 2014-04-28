@@ -1,6 +1,6 @@
-# Developing web applications with Clojure - code
+# Building web applications with Clojure - code
 
-This repository contains source codes for the [Developing web applications with Clojure](http://www.packtpub.com/) screencast, published
+This repository contains source codes for the [Building web applications with Clojure](http://www.packtpub.com/building-web-applications-with-clojure/video) screencast, published
 by [PacktPub](https://www.packtpub.com).
 
 *Please note, that this code is provided for demonstrational purposes only and was written live during short videos. Therefore, it is kind of pointless to use it without commentary provided in the video course itself.*
